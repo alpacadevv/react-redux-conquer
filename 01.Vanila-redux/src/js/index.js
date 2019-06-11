@@ -67,6 +67,7 @@ const store = createStore(
 );
 
 const appTitle = document.querySelector('.app__title');
+const appPallete = document.querySelector('.app__palette');
 const appForm = document.querySelector('.app__form');
 const todoText = document.querySelector('#todoText');
 const addButton = document.querySelector('#addButton');
@@ -109,7 +110,33 @@ todoList.addEventListener('click', (e) => {
 });
 
 /**
- * 렌더 함수 정의
+ * 팔레트 렌더 함수 정의
+ */
+const paletteRender = () => {
+  const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', '#16a085'];
+  const paletteItems = colors.reduce((p, c) => {
+    const paletteItem = makeElement({
+      nodeName: 'div',
+      attrs: {
+        class: 'palette__item',
+        styles: {
+          background: c,
+        },
+      },
+    });
+    paletteItem.addEventListener('click', (e) => {
+      store.dispatch(changeHeaderColor(e.target.style.background));
+    });
+    p.appendChild(paletteItem);
+    return p;
+  }, document.createDocumentFragment());
+  appPallete.appendChild(paletteItems);
+};
+
+paletteRender();
+
+/**
+ * state랑 연관있는 부분들 렌더 함수 정의
  */
 const render = () => {
   const state = store.getState();
@@ -117,6 +144,7 @@ const render = () => {
   // 테마 색 설정
   appTitle.style.background = state.headerColor;
   appForm.style.background = state.headerColor;
+  appPallete.style.background = state.headerColor;
 
   // 투두 리스트 렌더
   const todoListElement = state.todos.reduce((p, c, i) => {

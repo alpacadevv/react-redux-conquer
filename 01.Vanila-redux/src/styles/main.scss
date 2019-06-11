@@ -37,8 +37,28 @@ ul {
       background-color: #16a085;
     }
 
+    &palette {
+      background-color: #16a085;
+    }
+
     &list {
       padding: 5px;
+    }
+  }
+}
+
+.palette {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 0;
+
+  &__ {
+    &item {
+      border-radius: 5px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      border: 3px solid #fff;
     }
   }
 }
