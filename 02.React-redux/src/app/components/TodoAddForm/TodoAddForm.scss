@@ -1,0 +1,39 @@
+.TodoAddForm {
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+
+  &__ {
+    &text {
+      display: block;
+      width: 100%;
+      height: 50px;
+      font-size: 1.8rem;
+      padding: 0 17px;
+      outline-color: #fff;
+      border: {
+        width: 0;
+        radius: 7px 0 0 7px;
+        bottom: 5px solid #bdc3c7;
+      }
+    }
+
+    &add {
+      display: block;
+      height: 50px;
+      padding: 0 17px;
+      background-color: #0BC904;
+      cursor: pointer;
+      color: #fff;
+      font: {
+        size: 1.8rem;
+        weight: bold;
+      }
+      border: {
+        width: 0;
+        radius: 0 7px 7px 0;
+        bottom: 5px solid #00A500;
+      }
+    }
+  }
+}
