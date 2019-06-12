@@ -1,4 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
+import produce from 'immer';
 
 /**
  * 액션 타입 정의
@@ -31,10 +32,11 @@ const initialState = {
  */
 export default handleActions(
   {
-    [CHANGE_COLOR]: (state, action) => ({
-      ...state,
-      selectedColor: action.payload,
-    }),
+    [CHANGE_COLOR]: (state, action) => (
+      produce(state, draft => {
+        draft.selectedColor = action.payload;
+      })
+    ),
   },
   initialState,
 );

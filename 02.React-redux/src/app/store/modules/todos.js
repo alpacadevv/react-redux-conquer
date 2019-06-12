@@ -1,4 +1,5 @@
 import { createAction, handleActions } from 'redux-actions';
+import produce from 'immer';
 
 /**
  * 액션 타입 정의
@@ -26,25 +27,25 @@ const initialState = {
  */
 export default handleActions(
   {
-    [ADD_TODO]: (state, action) => ({
-      ...state,
-      todos: [...state.todos, { 
-        text: action.payload,
-        isComplete: false,
-      }],
-    }),
-    [COMPLETE_TODO]: (state, action) => ({
-      ...state,
-      todos: state.todos.map(
-        (todo, id) => id === action.payload
-        ? {...todo, isComplete: !todo.isComplete}
-        : todo
-      ),
-    }),
-    [REMOVE_TODO]: (state, action) => ({
-        ...state,
-        todos: state.todos.filter((todo, id) => id !== action.payload),
-    }),
+    [ADD_TODO]: (state, action) => (
+      produce(state, draft => {
+        draft.todos.push({
+          text: action.payload,
+          isComplete: false,
+        });
+      })
+    ),
+    [COMPLETE_TODO]: (state, action) => (
+      produce(state, draft => {
+        const item = draft.todos[action.payload];
+        item.isComplete = !item.isComplete;
+      })
+    ),
+    [REMOVE_TODO]: (state, action) => (
+      produce(state, draft => {
+        draft.todos.splice(action.payload, 1);
+      })
+    ),
   },
   initialState,
 );
