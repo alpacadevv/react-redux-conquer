@@ -1,12 +1,13 @@
-import React, { memo } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './TodoList.scss';
 import TodoItem from './TodoItem';
 
-const TodoList = memo(({ todos, completeTodo, removeTodo }) => {
+const TodoList = ({ todos, completeTodo, removeTodo }) => {
 
   const todoList = todos.map((todo, id) => (
     <TodoItem
+      className="TodoList__item"
       key={`todoItemCheck${id}`}
       id={id}
       todo={todo}
@@ -18,7 +19,7 @@ const TodoList = memo(({ todos, completeTodo, removeTodo }) => {
   return (
     <ul className="TodoList">{todoList}</ul>
   );
-});
+};
 
 TodoList.propTypes = {
   todos: PropTypes.node.isRequired,

@@ -3,13 +3,13 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import './TodoItem.scss';
 
-const TodoItem = memo(({ id, todo, completeTodo, removeTodo}) => {
+const TodoItem = memo(({ className, id, todo, completeTodo, removeTodo}) => {
 
   const onClickComplete = useCallback(() => completeTodo(id), []);
   const onClickRemove = useCallback(() => removeTodo(id), []);
 
   return (
-    <li className="TodoItem">
+    <li className={classNames(className, 'TodoItem')}>
       <input type="checkbox" className="TodoItem__checkInput" id={`todoItemCheck${id}`} onClick={onClickComplete} />
       <label htmlFor={`todoItemCheck${id}`} className="TodoItem__rowWrap">
         <span

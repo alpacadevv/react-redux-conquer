@@ -1,10 +1,10 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, memo } from 'react';
 import PropTypes from 'prop-types';
 import './TodoHeader.scss';
 import TodoAddForm from '../TodoAddForm';
 import TodoPalette from '../TodoPalette';
 
-const TodoHeader = ({ selectedColor, colors, addTodo, changeColor }) => {
+const TodoHeader = memo(({ selectedColor, colors, addTodo, changeColor }) => {
 
   const handleAddTodo = useCallback((text) => addTodo(text), []);
   const handleChangeColor = useCallback(color => changeColor(color), []);
@@ -21,7 +21,7 @@ const TodoHeader = ({ selectedColor, colors, addTodo, changeColor }) => {
       />
     </div>
   );
-};
+});
 
 TodoHeader.propTypes = {
   selectedColor: PropTypes.string.isRequired,
