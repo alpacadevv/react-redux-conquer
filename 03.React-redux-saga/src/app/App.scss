@@ -1,0 +1,28 @@
+@import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, h1, div, ul, li {
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  font: {
+    family:  'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    size: 100%;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+.App {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 3px 3px 5px #bdbdbd;
+}

@@ -1,0 +1,26 @@
+.TodoPost {
+  text-align: center;
+  border-top: 3px solid #000;
+
+  &__ {
+    &title {
+      background-color: #ccc;
+    }
+
+    &fetchPosts {
+      display: block;
+      cursor: pointer;
+      background-color: #ccc;
+      
+      &:hover {
+        background-color: #bbb;
+      }
+    }
+
+    &fetchPost {
+      display: inline-block;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+  }
+}
