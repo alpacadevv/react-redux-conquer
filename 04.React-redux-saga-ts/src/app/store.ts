@@ -1,4 +1,4 @@
-import { Dispatch, combineReducers, applyMiddleware, createStore, compose } from 'redux';
+import { combineReducers, applyMiddleware, createStore, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
 import { TodoStateType } from './services/todo/types';

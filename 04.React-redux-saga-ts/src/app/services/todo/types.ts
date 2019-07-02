@@ -1,8 +1,9 @@
-import { Action } from '@/app/utils/typeHelper';
+import { Action } from '@/utils/typeHelper';
 import { 
   CREATE_TODO,
   REMOVE_TODO,
-  TOGGLE_TODO
+  TOGGLE_TODO,
+  CHANGE_TODO_COLOR,
 } from './actions';
 
 export interface TodoType {
@@ -13,6 +14,8 @@ export interface TodoType {
 
 export interface TodoStateType {
   todoList: TodoType[];
+  selectedColor: string;
+  colorList: string[];
 }
 
 /**
@@ -30,7 +33,12 @@ interface ToggleTodo extends Action<typeof TOGGLE_TODO, {
   id: number;
 }>{}
 
+interface ChangeTodoColor extends Action<typeof CHANGE_TODO_COLOR, {
+  color: string;
+}>{}
+
 export type TodoActionType = 
   | CreateTodo
   | RemoveTodo
-  | ToggleTodo;
+  | ToggleTodo
+  | ChangeTodoColor;

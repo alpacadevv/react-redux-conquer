@@ -9,7 +9,7 @@ module.exports = {
   devtool: 'source-map',
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      '@': path.resolve(__dirname, 'src/app'),
     },
     extensions: ['.ts', '.tsx', '.js'],
   },
