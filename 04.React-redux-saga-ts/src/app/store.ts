@@ -12,7 +12,7 @@ export interface RootStateType {
   post: PostStateType;
 }
 
-function* rootSaga(dispatch: Dispatch) {
+function* rootSaga() {
   yield all([
     postSaga(),
   ]);
@@ -35,4 +35,4 @@ export const store = createStore(
 );
 console.log(store.getState());
 
-sagaMiddleware.run(rootSaga, store.dispatch);
+sagaMiddleware.run(rootSaga);

@@ -8,6 +8,9 @@ module.exports = {
   mode: 'development',
   devtool: 'source-map',
   resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
     extensions: ['.ts', '.tsx', '.js'],
   },
   context: sourcePath,
@@ -60,6 +63,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     port: 8080,
+    inline: true,
     hot: true,
   },
 }

@@ -1,4 +1,4 @@
-import { Action } from '../type';
+import { Action } from '@/app/utils/typeHelper';
 import {
   GET_POST_REQUEST,
   GET_POST_SUCCESS,

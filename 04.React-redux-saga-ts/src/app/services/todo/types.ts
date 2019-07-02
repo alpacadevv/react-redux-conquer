@@ -1,4 +1,9 @@
-import { CREATE_TODO, REMOVE_TODO, TOGGLE_TODO } from './actions';
+import { Action } from '@/app/utils/typeHelper';
+import { 
+  CREATE_TODO,
+  REMOVE_TODO,
+  TOGGLE_TODO
+} from './actions';
 
 export interface TodoType {
   id: number;
@@ -13,19 +18,19 @@ export interface TodoStateType {
 /**
  * TODO ACTIONS TYPE
  */
-interface CreateTodo {
-  type: typeof CREATE_TODO;
+interface CreateTodo extends Action<typeof CREATE_TODO, {
   text: string;
-}
+}>{}
 
-interface RemoveTodo {
-  type: typeof REMOVE_TODO;
+interface RemoveTodo extends Action<typeof REMOVE_TODO, {
   id: number;
-}
+}>{}
 
-interface ToggleTodo {
-  type: typeof TOGGLE_TODO;
+interface ToggleTodo extends Action<typeof TOGGLE_TODO, {
   id: number;
-}
+}>{}
 
-export type TodoActionType = CreateTodo | RemoveTodo | ToggleTodo;
+export type TodoActionType = 
+  | CreateTodo
+  | RemoveTodo
+  | ToggleTodo;
