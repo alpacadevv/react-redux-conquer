@@ -12,10 +12,10 @@ interface StateProps {
 }
 
 interface DispatchProps {
-  create: (value: string) => {},
-  remove: (value: number) => {},
-  toggle: (value: number) => {},
-  changeInput: (value: string) => {},
+  create: (value: string) => {};
+  remove: (value: number) => {};
+  toggle: (value: number) => {};
+  changeInput: (value: string) => {};
 }
 
 type Props = StateProps & DispatchProps
