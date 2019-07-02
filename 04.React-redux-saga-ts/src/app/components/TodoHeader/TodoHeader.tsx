@@ -1,6 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import './TodoHeader.scss';
 import TodoAddForm from '../TodoAddForm';
+import { RootStateType } from '@/store';
+import { createTodo, changeTodoColor } from '@/services/todo/actions';
 
 const TodoHeader = () => {
   return (
@@ -11,4 +15,13 @@ const TodoHeader = () => {
   );
 };
 
-export default TodoHeader;
+const mapStateToProps = ({ todo }: RootStateType) => ({
+  colorList: todo.colorList,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(
+  {createTodo, changeTodoColor},
+  dispatch
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoHeader);
