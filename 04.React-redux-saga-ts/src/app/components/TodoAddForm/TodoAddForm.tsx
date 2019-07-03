@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './TodoAddForm.scss';
+import { CreateTodoAction } from '@/services/todo/types';
 
 interface Props {
-  createTodo(text: string): void;
+  createTodo: CreateTodoAction;
 }
 
-const TodoAddForm: React.SFC<Props> = (props) => {
+const TodoAddForm: React.SFC<Props> = props => {
   const { createTodo } = props;
   const [text,setText] = useState('');
 

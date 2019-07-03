@@ -2,17 +2,18 @@ import React from 'react';
 import classNames from 'classnames';
 import './TodoItem.scss';
 import { TodoType } from '@/services/todo/types';
+import { ToggleTodoAction, RemoveTodoAction } from '@/services/todo/types';
 
 interface Props {
   className: string;
   id: number;
   todo: TodoType;
-  toggleTodo(id: number): void;
-  removeTodo(id: number): void;
+  toggleTodo: ToggleTodoAction;
+  removeTodo: RemoveTodoAction;
 }
 
-const TodoItem: React.SFC<Props> = ({ className, id, todo, toggleTodo, removeTodo}) => {
-
+const TodoItem: React.SFC<Props> = props => {
+  const { className, id, todo, toggleTodo, removeTodo} = props;
   const onToggleTodo = () => {
     toggleTodo(id);
   };

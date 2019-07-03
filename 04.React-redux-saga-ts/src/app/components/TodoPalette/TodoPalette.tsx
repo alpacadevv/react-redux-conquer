@@ -1,10 +1,11 @@
 import React from 'react';
 import './TodoPalette.scss';
 import TodoPaletteItem from '../TodoPaletteItem';
+import { ChangeTodoColorAction } from '@/services/todo/types';
 
 interface Props {
   colorList: string[];
-  changeTodoColor(color: string): void;
+  changeTodoColor: ChangeTodoColorAction;
 }
 
 const TodoPalette: React.SFC<Props> = (props) => {
