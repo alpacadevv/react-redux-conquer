@@ -21,19 +21,19 @@ export interface TodoStateType {
 /**
  * TODO ACTIONS TYPE
  */
-interface CreateTodo extends Action<typeof CREATE_TODO, {
+export interface CreateTodo extends Action<typeof CREATE_TODO, {
   text: string;
 }>{}
 
-interface RemoveTodo extends Action<typeof REMOVE_TODO, {
+export interface RemoveTodo extends Action<typeof REMOVE_TODO, {
   id: number;
 }>{}
 
-interface ToggleTodo extends Action<typeof TOGGLE_TODO, {
+export interface ToggleTodo extends Action<typeof TOGGLE_TODO, {
   id: number;
 }>{}
 
-interface ChangeTodoColor extends Action<typeof CHANGE_TODO_COLOR, {
+export interface ChangeTodoColor extends Action<typeof CHANGE_TODO_COLOR, {
   color: string;
 }>{}
 

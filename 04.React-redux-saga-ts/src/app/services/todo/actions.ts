@@ -1,4 +1,4 @@
-import { createAction } from 'redux-actions';
+import * as types from './types';
 
 /**
  * TODO ACTION GENERIC
@@ -8,7 +8,27 @@ export const REMOVE_TODO = 'REMOVE_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 export const CHANGE_TODO_COLOR = 'CHANGE_TODO_COLOR';
 
-export const createTodo = createAction(CREATE_TODO);
-export const removeTodo = createAction(REMOVE_TODO);
-export const toggleTodo = createAction(TOGGLE_TODO);
-export const changeTodoColor = createAction(CHANGE_TODO_COLOR);
+export const createTodo = (text: string): types.CreateTodo => ({
+  type: CREATE_TODO,
+  payload: {
+    text,
+  },
+});
+export const removeTodo = (id: number): types.RemoveTodo => ({
+  type: REMOVE_TODO,
+  payload: {
+    id,
+  },
+})
+export const toggleTodo = (id: number): types.ToggleTodo => ({
+  type: TOGGLE_TODO,
+  payload: {
+    id,
+  },
+})
+export const changeTodoColor = (color: string): types.ChangeTodoColor => ({
+  type: CHANGE_TODO_COLOR,
+  payload: {
+    color,
+  },
+});

@@ -1,11 +1,6 @@
 import produce from 'immer';
 import { TodoStateType, TodoActionType } from './types';
-import {
-  CREATE_TODO,
-  REMOVE_TODO,
-  TOGGLE_TODO,
-  CHANGE_TODO_COLOR,
-} from './actions';
+import * as actions from './actions';
 
 const todoState: TodoStateType = {
   todoList: [],
@@ -24,8 +19,9 @@ const todoState: TodoStateType = {
 let todoIndex: number = 0;
 
 export default (state = todoState, action: TodoActionType): TodoStateType => {
+  console.log(action);
   switch (action.type) {
-    case CREATE_TODO: {
+    case actions.CREATE_TODO: {
       return produce(state, draft => {
         draft.todoList.push({
           id: todoIndex++,
@@ -34,7 +30,7 @@ export default (state = todoState, action: TodoActionType): TodoStateType => {
         });
       });
     }
-    case REMOVE_TODO: {
+    case actions.REMOVE_TODO: {
       return produce(state, draft => {
         draft.todoList.splice(
           draft.todoList.findIndex(todo => todo.id === action.payload.id),
@@ -42,13 +38,13 @@ export default (state = todoState, action: TodoActionType): TodoStateType => {
         );
       });
     }
-    case TOGGLE_TODO: {
+    case actions.TOGGLE_TODO: {
       return produce(state, draft => {
         const item = draft.todoList.find(todo => todo.id === action.payload.id);
         if (item) item.done = !item.done;
       });
     }
-    case CHANGE_TODO_COLOR: {
+    case actions.CHANGE_TODO_COLOR: {
       return produce(state, draft => {
         draft.selectedColor = action.payload.color;
       });
