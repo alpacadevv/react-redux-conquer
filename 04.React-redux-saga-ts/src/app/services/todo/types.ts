@@ -42,3 +42,22 @@ export type TodoActionType =
   | RemoveTodo
   | ToggleTodo
   | ChangeTodoColor;
+
+/**
+ * TODO ACTIONS FORMAT
+ */
+export interface CreateTodoAction {
+  (text: string): CreateTodo;
+}
+
+export interface RemoveTodoAction {
+  (id: number): RemoveTodo;
+}
+
+export interface ToggleTodoAction {
+  (id: number): ToggleTodo;
+}
+
+export interface ChangeTodoColorAction {
+  (color: string): ChangeTodoColor
+}

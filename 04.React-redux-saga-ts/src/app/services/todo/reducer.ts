@@ -19,7 +19,6 @@ const todoState: TodoStateType = {
 let todoIndex: number = 0;
 
 export default (state = todoState, action: TodoActionType): TodoStateType => {
-  console.log(action);
   switch (action.type) {
     case actions.CREATE_TODO: {
       return produce(state, draft => {

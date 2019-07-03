@@ -8,25 +8,28 @@ export const REMOVE_TODO = 'REMOVE_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 export const CHANGE_TODO_COLOR = 'CHANGE_TODO_COLOR';
 
-export const createTodo = (text: string): types.CreateTodo => ({
+export const createTodo: types.CreateTodoAction = text => ({
   type: CREATE_TODO,
   payload: {
     text,
   },
 });
-export const removeTodo = (id: number): types.RemoveTodo => ({
+
+export const removeTodo: types.RemoveTodoAction = id => ({
   type: REMOVE_TODO,
   payload: {
     id,
   },
-})
-export const toggleTodo = (id: number): types.ToggleTodo => ({
+});
+
+export const toggleTodo: types.ToggleTodoAction = id => ({
   type: TOGGLE_TODO,
   payload: {
     id,
   },
-})
-export const changeTodoColor = (color: string): types.ChangeTodoColor => ({
+});
+
+export const changeTodoColor: types.ChangeTodoColorAction = color => ({
   type: CHANGE_TODO_COLOR,
   payload: {
     color,

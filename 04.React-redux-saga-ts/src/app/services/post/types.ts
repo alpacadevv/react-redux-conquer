@@ -50,3 +50,14 @@ export type PostActionType =
   | GetPostListRequest
   | GetPostListSuccess
   | GetPostListFailure;
+
+/**
+ * POST ACTIONS FORMAT
+ */
+export interface GetPostRequestAction {
+  (id: number): GetPostRequest;
+}
+
+export interface GetPostListRequestAction {
+  (): GetPostListRequest;
+}
