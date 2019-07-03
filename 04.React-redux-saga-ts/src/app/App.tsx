@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.scss';
-import Counter from './components/Counter';
 import TodoHeader from './components/TodoHeader';
+import TodoList from './components/TodoList';
 
 const App = () => (
   <div className="App">
-    {/* <Counter name='react!' /> */}
     <TodoHeader />
+    <TodoList />
   </div>
 );
 
