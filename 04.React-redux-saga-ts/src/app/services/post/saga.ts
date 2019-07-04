@@ -12,12 +12,15 @@ function getPostListAPI() {
 
 function* getPost({ payload }: ReturnType<typeof actions.getPostRequest>) {
   const { id } = payload;
+
   try {
     const res = yield call(getPostAPI, id);
-    console.log(res.data);
+
     yield put({
       type: actions.GET_POST_SUCCESS,
-      payload: res.data,
+      payload: {
+        post: res.data,
+      },
     });
   } catch (e) {
     yield put({
@@ -34,9 +37,12 @@ function* watchGetPost() {
 function* getPostList() {
   try {
     const res = yield call(getPostListAPI);
+
     yield put({
-      type: actions.GET_POST_SUCCESS,
-      payload: res.data,
+      type: actions.GET_POST_LIST_SUCCESS,
+      payload: {
+        postList: res.data,
+      },
     });
   } catch (e) {
     yield put({
