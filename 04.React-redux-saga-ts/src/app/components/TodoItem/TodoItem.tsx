@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, useCallback } from 'react';
 import classNames from 'classnames';
 import './TodoItem.scss';
 import { TodoType } from '@/services/todo/types';
@@ -12,16 +12,16 @@ interface Props {
   removeTodo: RemoveTodoAction;
 }
 
-const TodoItem: React.SFC<Props> = props => {
+const TodoItem: React.SFC<Props> = memo(props => {
   const { className, id, todo, toggleTodo, removeTodo} = props;
 
-  const onToggleTodo = (): void => {
+  const onToggleTodo = useCallback((): void => {
     toggleTodo(id);
-  };
+  }, []);
 
-  const onRemoveTodo = (): void => {
+  const onRemoveTodo = useCallback((): void => {
     removeTodo(id);
-  };
+  }, []);
 
   return (
     <li className={classNames(className, 'TodoItem')}>
@@ -40,6 +40,6 @@ const TodoItem: React.SFC<Props> = props => {
       <button className="TodoItem__remove" onClick={onRemoveTodo}>REMOVE</button>
     </li>
   );
-};
+});
 
 export default TodoItem;

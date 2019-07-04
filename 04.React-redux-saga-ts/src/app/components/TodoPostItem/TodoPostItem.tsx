@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import classNames from 'classnames';
 import './TodoPostItem.scss';
 
@@ -8,7 +8,7 @@ interface Props {
   body: string;
 }
 
-const TodoPostItem: React.SFC<Props> = props => {
+const TodoPostItem: React.SFC<Props> = memo(props => {
   const { className, title, body } = props;
 
   return (
@@ -17,6 +17,6 @@ const TodoPostItem: React.SFC<Props> = props => {
       <p>{body}</p>
     </li>
   );
-};
+});
 
 export default TodoPostItem;

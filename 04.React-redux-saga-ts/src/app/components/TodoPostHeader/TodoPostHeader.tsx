@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import './TodoPostHeader.scss';
@@ -11,17 +11,17 @@ const TodoPostHeader: React.SFC<Props> = props => {
   const { getPostRequest, getPostListRequest } = props;
   const [pageNumber, setPageNumber] = useState(1);
 
-  const onGetPostRequest = (): void => {
-    getPostRequest(pageNumber);
-  };
-
-  const onGetPostListRequest = (): void => {
+  const onGetPostListRequest = useCallback((): void => {
     getPostListRequest();
-  };
+  }, []);
 
-  const onChangePageNumber = (e: React.FormEvent<HTMLInputElement>): void => {
+  const onGetPostRequest = useCallback((): void => {
+    getPostRequest(pageNumber);
+  }, [pageNumber]);
+
+  const onChangePageNumber = useCallback((e: React.FormEvent<HTMLInputElement>): void => {
     setPageNumber(parseInt(e.currentTarget.value));
-  };
+  }, []);
 
   return (
     <div className="TodoPostHeader">

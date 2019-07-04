@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './TodoPalette.scss';
 import TodoPaletteItem from '../TodoPaletteItem';
 import { ChangeTodoColorAction } from '@/services/todo/types';
@@ -8,8 +8,9 @@ interface Props {
   changeTodoColor: ChangeTodoColorAction;
 }
 
-const TodoPalette: React.SFC<Props> = (props) => {
+const TodoPalette: React.SFC<Props> = memo((props) => {
   const { colorList, changeTodoColor } = props;
+
   const paletteColorList = colorList.map(color => (
     <TodoPaletteItem className="TodoPalette__item" key={color} color={color} changeTodoColor={changeTodoColor} />
   ));
@@ -17,6 +18,6 @@ const TodoPalette: React.SFC<Props> = (props) => {
   return (
     <div className="TodoPalette">{paletteColorList}</div>
   );
-};
+});
 
 export default TodoPalette;

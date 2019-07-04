@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import classNames from 'classnames';
 import './TodoPaletteItem.scss';
 import { ChangeTodoColorAction } from '@/services/todo/types';
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const TodoPaletteItem: React.SFC<Props> = ({ className, color, changeTodoColor }) => {
-  const onClick = (color: string) => () => changeTodoColor(color);
+  const onClick = (color: string) => useCallback(() => changeTodoColor(color), []);
   return (
     <div
       className={classNames(className, 'TodoPaletteItem')} 
