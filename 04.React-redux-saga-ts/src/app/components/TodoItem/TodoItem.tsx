@@ -14,11 +14,12 @@ interface Props {
 
 const TodoItem: React.SFC<Props> = props => {
   const { className, id, todo, toggleTodo, removeTodo} = props;
-  const onToggleTodo = () => {
+
+  const onToggleTodo = (): void => {
     toggleTodo(id);
   };
 
-  const onRemoveTodo = () => {
+  const onRemoveTodo = (): void => {
     removeTodo(id);
   };
 

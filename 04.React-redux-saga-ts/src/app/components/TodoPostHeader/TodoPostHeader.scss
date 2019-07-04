@@ -1,3 +1,33 @@
 .TodoPostHeader {
-  
+  text-align: center;
+  background-color: #faed7d;
+  border-top: 3px solid #000;
+  border-bottom: 1px solid #bbb;
+
+  &__ {
+    &title {
+    }
+
+    &fetchPostList {
+      display: inline-block;
+      cursor: pointer;
+      padding: 2px 2px;
+      margin-right: 5px;
+      
+      &:hover {
+        background-color: #d6c959;
+      }
+    }
+
+    &fetchPost {
+      display: inline-block;
+      cursor: pointer;
+      padding: 2px 2px;
+      margin-right: 5px;
+
+      &:hover {
+        background-color: #d6c959;
+      }
+    }
+  }
 }

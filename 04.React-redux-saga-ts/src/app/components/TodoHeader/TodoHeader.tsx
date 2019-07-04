@@ -7,12 +7,12 @@ import { createTodo, changeTodoColor } from '@/services/todo/actions';
 import TodoAddForm from '../TodoAddForm';
 import TodoPalette from '../TodoPalette';
 
-interface TodoHeaderProps {
+interface TodoHeaderStateProps {
   selectedColor: string;
   colorList: string[];
 }
 
-type Props = TodoHeaderProps & ReturnType<typeof mapDispatchToProps>;
+type Props = TodoHeaderStateProps & ReturnType<typeof mapDispatchToProps>;
 
 const TodoHeader: React.SFC<Props> = props => {
   const { selectedColor, colorList, createTodo, changeTodoColor } = props;

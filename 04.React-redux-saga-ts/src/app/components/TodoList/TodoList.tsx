@@ -7,14 +7,15 @@ import { toggleTodo, removeTodo } from '@/services/todo/actions';
 import { TodoType } from '@/services/todo/types';
 import TodoItem from '../TodoItem';
 
-interface TodoHeaderProps {
+interface TodoHeaderStateProps {
   todoList: TodoType[];
 }
 
-type Props = TodoHeaderProps & ReturnType<typeof mapDispatchToProps>;
+type Props = TodoHeaderStateProps & ReturnType<typeof mapDispatchToProps>;
 
 const TodoList: React.SFC<Props> = props => {
   const { todoList, toggleTodo, removeTodo } = props;
+
   const todoListElement: React.ReactElement[] = todoList.map(todo => (
     <TodoItem
       className="TodoList__item"
@@ -25,6 +26,7 @@ const TodoList: React.SFC<Props> = props => {
       removeTodo={removeTodo}
     />
   ));
+
   return (
     <ul className="TodoList">{todoListElement}</ul>
   );
